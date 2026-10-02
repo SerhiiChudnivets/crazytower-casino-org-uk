@@ -22,17 +22,81 @@
       "gptPrompt": "",
       "heroTitle": "CrazyTower Casino - Official Site",
       "heroSubtitle": "Welcome Bonus",
+      "heroBadge": "Crazy Tower – Play the Best Online Slots 2026",
+      "ctaText": "Claim",
+      "tagline": "100% up to €3,000 + 100 Free Spins",
       "heroImage": "/uploads/c098220d859d49a0356f92c00f0a918a.webp",
       "template": "homepage",
       "isHomepage": false,
       "order": 0,
       "lang": "en-GB",
       "faqTitle": "FAQ",
+      "popupText": "Bonus 100% up to €3000 + 100 FS",
+      "popupLogo": "/uploads/2c485143de2237c104e5ad7934e73175.webp",
       "sections": null,
+      "slots": [
+        {
+          "link": "/play/",
+          "logo": "/uploads/a20abb7d701a3081c75b5e213e7ea182.webp",
+          "name": "Threefold the gold",
+          "Name": "Threefold the gold",
+          "logo_alt": "threefold the gold"
+        },
+        {
+          "link": "/play/",
+          "logo": "/uploads/266f409efeba053bbeb20e8ae5943918.webp",
+          "name": "Sea Of Spirits",
+          "Name": "Sea Of Spirits",
+          "logo_alt": "sea of spirits"
+        },
+        {
+          "link": "/play/",
+          "logo": "/uploads/f9d9fa6e6edaaaacfb32f7f172de5e41.webp",
+          "name": "Chaos Crew",
+          "Name": "Chaos Crew",
+          "logo_alt": "chaos crew"
+        },
+        {
+          "link": "/play/",
+          "logo": "/uploads/3a977159d4449d04c5b5e93e231f52fe.webp",
+          "name": "Lucky Money",
+          "Name": "Lucky Money",
+          "logo_alt": "lucky money"
+        }
+      ],
+      "bonuses": [
+        {
+          "link": "/play/",
+          "logo": "/uploads/2e1f0d9522ae8dcfb709cc7d29b53e54.webp",
+          "name": "Welcome Bonus: 100% up to €3,000 + 100 FS",
+          "Name": "Welcome Bonus: 100% up to €3,000 + 100 FS",
+          "logo_alt": "Welcome Bonus"
+        },
+        {
+          "link": "/play/",
+          "logo": "/uploads/4d2c57274ad41f70797e49427599fbc6.webp",
+          "name": "Crypto Bonus: 200% up to 4000 USDT  ",
+          "Name": "Crypto Bonus: 200% up to 4000 USDT  ",
+          "logo_alt": "Crypto Bonus"
+        },
+        {
+          "link": "/play/",
+          "logo": "/uploads/3363a02b633954efffdf51bc4c68773a.webp",
+          "name": "Sport Bonus: 100% up to €100",
+          "Name": "Sport Bonus: 100% up to €100",
+          "logo_alt": "Sport Bonus"
+        }
+      ],
       "faq": [],
+      "globalSlotSetId": null,
+      "globalReviewSetId": null,
       "websiteId": 133,
       "createdAt": {},
       "updatedAt": {},
+      "globalSlotSet": null,
+      "globalReviewSet": null,
+      "popup_text": "Bonus 100% up to €3000 + 100 FS",
+      "popup_logo": "/uploads/2c485143de2237c104e5ad7934e73175.webp",
       "hero_title": "CrazyTower Casino - Official Site",
       "hero_subtitle": "Welcome Bonus",
       "hero_image": "/uploads/c098220d859d49a0356f92c00f0a918a.webp",
@@ -40,7 +104,11 @@
       "seo_description": "Explore Crazy Tower Casino UK. Play real-money slots, live tables, and claim generous welcome bonus offers with fast deposit and withdrawal methods.",
       "html_head": "<link rel=\"canonical\" href=\"https://crazytower-casino.org.uk/en-gb/\">\n<link rel=\"alternate\" href=\"https://crazytower-casino.org.uk/\" hreflang=\"en\">\n<link rel=\"alternate\" href=\"https://crazytower-casino.org.uk/en-gb/\" hreflang=\"en-GB\">\n<meta property=\"og:locale\" content=\"en-GB\">\n<meta property=\"og:type\" content=\"website\">\n<meta property=\"og:title\" content=\"CrazyTower Casino | Play Slots & Live Tables in the UK\">\n<meta property=\"og:description\" content=\"Explore Crazy Tower Casino UK. Play real-money slots, live tables, and claim generous welcome bonus offers with fast deposit and withdrawal methods.\">\n<meta property=\"og:url\" content=\"crazytower-casino.org.uk\">\n<meta property=\"og:site_name\" content= \"CrazyTower Casino\">",
       "faq_title": "FAQ",
+      "hero_badge": "Crazy Tower – Play the Best Online Slots 2026",
+      "cta_text": "Claim",
       "heroImage_alt": "crazytower baner",
+      "popupLogo_alt": "crazytower logo",
+      "popup_logo_alt": "crazytower logo",
       "hero_image_alt": "crazytower baner"
     }
   ],
@@ -298,8 +366,8 @@
       "question": "What should I do if I forget my account login details?"
     }
   ],
-  "_generated_at": "2026-08-26T13:30:10.633Z",
+  "_generated_at": "2026-10-02T13:33:15.627Z",
   "_version": "1.0.0",
-  "_last_deploy": "2026-08-26T13:30:11.280Z",
-  "_deploy_trigger": "dbb87"
+  "_last_deploy": "2026-10-02T13:33:16.207Z",
+  "_deploy_trigger": "crqtb"
 }

@@ -5,6 +5,8 @@ interface MediaFile {
   id?: number
   name?: string
   url?: string
+  alt?: string
+  alternativeText?: string
 }
 
 interface ContentSection {
@@ -20,6 +22,8 @@ interface ContentSection {
 interface FooterImage {
   id?: number
   link?: string
+  alt?: string
+  image_alt?: string
   image?: string | MediaFile | MediaFile[] | null
 }
 
@@ -52,7 +56,7 @@ interface PageData {
   hero_image?: string | MediaFile | MediaFile[] | null
   hero_badge?: string
   cta_text?: string
-  logo?: { url: string; name?: string } | null
+  logo?: { url: string; name?: string; alt?: string; alternativeText?: string } | null
   accent_color?: string
   tagline?: string
   features_list?: string
@@ -1406,7 +1410,8 @@ export default function LandingTemplate({ page, site }: { page: PageData; site: 
 
   const heroTitle = page.heroTitle || page.hero_title || data.heroTitle || data.hero_title || 'Get 200% Bonus'
   const heroSubtitle = page.heroSubtitle || page.hero_subtitle || data.heroSubtitle || data.hero_subtitle || 'Up to €1,000 + 100 Free Spins'
-  const heroBadge = page.hero_badge || data.hero_badge || '🎰 Welcome Bonus'
+  const pageHeroBadge = Object.prototype.hasOwnProperty.call(page, 'heroBadge') ? page.heroBadge : page.hero_badge
+  const heroBadge = typeof pageHeroBadge === 'string' ? pageHeroBadge.trim() : ''
   const ctaText = data.cta_text || 'Play Now'
   const [showPopup, setShowPopup] = useState(false)
   const [isPopupDismissed, setIsPopupDismissed] = useState(false)
@@ -1485,10 +1490,18 @@ export default function LandingTemplate({ page, site }: { page: PageData; site: 
     if (typeof media === 'object' && 'url' in media) return media.url || ''
     return ''
   }
+  const getMediaAlt = (media?: MediaFile | MediaFile[] | string | null, fallback = '') => {
+    if (!media) return fallback
+    if (typeof media === 'string') return fallback
+    if (Array.isArray(media)) return getMediaAlt(media[0], fallback)
+    return media.alt || media.alternativeText || media.name || fallback
+  }
+  const processedContent = page.content || ''
   const footerImages = (Array.isArray(data.footer_images) ? data.footer_images : data.footerImages || [])
-      .map((item) => ({
+      .map((item, index) => ({
         ...item,
         imageUrl: getMediaUrl(item.image || undefined),
+        imageAlt: item.alt || item.image_alt || getMediaAlt(item.image || undefined, `Footer certification ${index + 1}`),
       }))
       .filter((item) => item.imageUrl)
 
@@ -1516,7 +1529,7 @@ export default function LandingTemplate({ page, site }: { page: PageData; site: 
           <div className="header-content">
             <div className="logo">
               <a href={normalizeUrl(urlSite)}>
-                <img src={getMediaUrl(data.logo)} alt={siteName} className="logo-image"/>
+                <img src={getMediaUrl(data.logo)} alt={getMediaAlt(data.logo, siteName)} className="logo-image"/>
               </a>
             </div>
             <nav className={`nav-bar ${isMobileMenuOpen ? 'open' : ''}`}>
@@ -1633,7 +1646,7 @@ export default function LandingTemplate({ page, site }: { page: PageData; site: 
         <div className="hero-overlay"></div>
         <div className="container">
           <div className="hero-content">
-            <span className="hero-badge">{heroBadge}</span>
+            {heroBadge && <span className="hero-badge">{heroBadge}</span>}
             <div className="hero-background">
               <h1 className="hero-title">
                 <span className="hero-accent">{heroTitle}</span>
@@ -1659,10 +1672,10 @@ export default function LandingTemplate({ page, site }: { page: PageData; site: 
 
 
       {/* Custom Content Section */}
-      {page.content && (
+      {processedContent && (
           <section className="content-section">
             <div className="container">
-              <div className="content-wrapper" dangerouslySetInnerHTML={{ __html: page.content }} />
+              <div className="content-wrapper" dangerouslySetInnerHTML={{ __html: processedContent }} />
             </div>
           </section>
       )}
@@ -1736,7 +1749,7 @@ export default function LandingTemplate({ page, site }: { page: PageData; site: 
             <div className="footer-top">
               <div className="logo">
                 <a href={normalizeUrl(urlSite)}>
-                  <img src={getMediaUrl(data.logo)} alt={siteName} className="logo-image"/>
+                  <img src={getMediaUrl(data.logo)} alt={getMediaAlt(data.logo, siteName)} className="logo-image"/>
                 </a>
               </div>
 
@@ -1752,7 +1765,7 @@ export default function LandingTemplate({ page, site }: { page: PageData; site: 
                         >
                           <img
                               src={item.imageUrl}
-                              alt={`Footer certification ${index + 1}`}
+                              alt={item.imageAlt}
                               className="footer-certification-image"
                           />
                         </a>
@@ -1815,7 +1828,7 @@ export default function LandingTemplate({ page, site }: { page: PageData; site: 
                 <div className="logo">
                   <img
                       src={getMediaUrl(data.popup_logo)}
-                      alt="Logo"
+                      alt={getMediaAlt(data.popup_logo, 'Logo')}
                       className="logo-image"
                   />
                 </div>
