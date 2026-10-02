@@ -5,7 +5,7 @@
   "url": "crazytower-casino.org.uk",
   "template": "tupchiy",
   "language_code": "en",
-  "allow_indexing": false,
+  "allow_indexing": true,
   "redirect_404s_to_homepage": false,
   "use_www_version": false,
   "breadcrumbs": true,
@@ -366,8 +366,8 @@
       "question": "What should I do if I forget my account login details?"
     }
   ],
-  "_generated_at": "2026-10-02T13:33:15.627Z",
+  "_generated_at": "2026-10-02T13:34:56.500Z",
   "_version": "1.0.0",
-  "_last_deploy": "2026-10-02T13:33:16.207Z",
-  "_deploy_trigger": "crqtb"
+  "_last_deploy": "2026-10-02T13:34:58.123Z",
+  "_deploy_trigger": "26dj8b"
 }
